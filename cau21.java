@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cau2;
 
 import java.util.Scanner;
@@ -13,6 +9,9 @@ import java.util.Scanner;
 public class cau21 {
 
     static boolean isSnt(int n) {
+        if (n < 2) {
+            return false;
+        }
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
@@ -23,11 +22,10 @@ public class cau21 {
 
     static int demSnt(int n) {
         int dem = 0;
-        if (isSnt(n)) {
-            for (int i = 2; i < n; i++) {
-                if (isSnt(i)) {
-                    dem++;
-                }
+
+        for (int i = 2; i < n; i++) {
+            if (isSnt(i)) {
+                dem++;
             }
         }
 
@@ -42,10 +40,14 @@ public class cau21 {
         int a = sc.nextInt();
         System.out.print("Nhap B: ");
         int b = sc.nextInt();
+        int dem = 0;
         for (int i = a; i <= b; i++) {
             if (isSnt(demSnt(i))) {
                 System.out.print(i + " ");
+                dem++;
             }
         }
+        System.out.println("");
+        System.out.println(dem);
     }
 }
