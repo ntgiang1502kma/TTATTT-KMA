@@ -25,7 +25,9 @@ public class cau23 {
         int b = sc.nextInt();
         int sum = 0;
         for(int i = a; i <= b; i++){
-            sum+=i;
+            if(isSnt(i)){
+                sum+=i;
+            }
         }
         if(isSnt(sum)){
             System.out.println("YES");
